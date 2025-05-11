@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #000; /* Black background for contrast */
+    color: #fff; /* Default text color is white */
+    line-height: 1.5;
+}
+.navspace{
+    border-bottom: 2px solid red;
+    min-height: 94px;
+    background-color: #000;
+}
+.headimgdivD{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 280px;
+    background: rgb(2,3,7,0.4);
+    position: relative; /* Ensure proper positioning for overlay */
+    overflow: hidden;
+}
+.headimgD{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* object-position: top; */
+    z-index: -1;
+    /* opacity: 0.7; */
+    filter: brightness(0.6);
+}
+.headimgdivD::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Control the height of the fading texture */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)); /* Fading effect */
+    pointer-events: none; /* Ensure this does not interfere with clicks */
+    z-index: 1; /* Keep it above the image */
+}
+
+.movieData{
+    /* display: flex; */
+    margin: -105px auto;
+    margin-bottom: 0;
+    padding: 0 20px;
+    z-index: 100;
+    max-width: 1180px;
+    position: relative;
+    display: flex;
+}
+.imgData img{
+    border-radius: 10px;
+}
+.infoData{
+    padding-left: 50px;
+    /* width: 75vw; */
+}
+.c, .d, .e, .f, .g{
+    font-size: 1.11rem;
+}
+.infoData h1{
+    font-family: "Libre Baskerville", serif;
+    font-size: 44px;
+    color: #FFFF;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.genre{
+    /* margin-right: 10px; */
+    padding: 6px 14px;
+    border: 2px solid #FFFF;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #fff;
+    margin: 5px;
+    margin-left: 0;
+    display: inline-block; /* Ensure it behaves as a block for flex */
+}
+.divider{
+    background-color: #666;
+    height: 1px;
+    border-radius: 20px;
+    margin: 20px 0;
+}
+.b{
+    padding-bottom: 12px;
+    display: flex; /* Enable flexbox */
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 10px; /* Add consistent spacing between items */
+}
+.c{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* margin-top: 10px; */
+    font-size: 1.1rem;
+}
+
+.d h3{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.e, .f{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.g{
+    margin: 0;
+    padding: 0;
+}
+.g p{
+    padding-bottom: 9px;
+}
+.swiperData  {
+    width: 65vw;
+    height: 100%;
+  }
+  
+  .swiper-slideData {
+    text-align: center;
+    /* font-size: 18px; */
+    /* width: 100px; */
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slideData img {
+    /* display: ; */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .swiper-sliderData{
+    text-align: center;
+  }
+  .swiper-sliderData img{
+    width: 110px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 120px;
+  }
+
+  /* .allData{
+    padding-bottom: 80px;
+  } */
+/* .similarmov{
+    margin-top: 80px;
+} */

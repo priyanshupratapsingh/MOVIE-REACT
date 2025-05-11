@@ -1,0 +1,147 @@
+@media (max-width: 750px){
+    .menu{
+        display: none;
+    }
+}
+@media (max-width: 580px){
+    .heading{
+        padding: 15px 10px;
+    }
+    .heading-scroll{
+        padding: 7px 10px;    
+    }
+    .search-container{
+        width: 200px;
+        margin-right: 0;
+    }
+    .movieName{
+        font-size: 1.75rem;
+    }
+    .swipe-head1{
+        width: 170px;
+        /* border-radius: 3rem; */
+    }
+    .movie-heading{
+        font-size: 1.4rem;
+        padding:0;
+    }
+    .head-data{
+        width: 88vw;
+    }
+    .head-data1{
+        font-size: 14px;
+
+    }
+}
+@media (max-width: 473px){
+    .head2{
+        gap: 1vw;
+    }
+    .title img{
+        height: 2.3rem;
+    }
+    .title2{
+        font-size: 16px;
+    }
+    .search-container{
+        width: 190px;
+        font-size: 9px;
+    }
+    .heading2{
+        gap: 5px;
+    }
+    .head-data{
+        width: 90vw;
+    }
+    .genreType{
+        font-size: 1.05rem;
+    }
+    .movieName{
+        font-size: 1.57rem;
+        /* font-weight: 700; */
+        margin-top: 0.7rem;
+    }
+    .movieInfo{
+        margin-top: 1rem;
+        font-size: 1.05rem;
+        font-weight: 500;
+    }
+    .btnTrailer{
+        margin-top: 1rem;
+    }
+    .btnTrailer button{
+        padding: 6px;
+        margin-right: 0.9rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+    }
+
+}
+@media (max-width: 413px){
+    /* .ibtn{
+        display: none;
+    } */
+    .heading{
+        padding: 15px 7px;
+    }
+    .heading-scroll{
+        padding: 6px 7px;    
+    }
+    .genreType{
+        font-size: 1rem;
+    }
+    .movieName{
+        font-size: 1.3rem;
+        /* font-weight: 700; */
+        margin-top: 0.7rem;
+    }
+    .movieInfo{
+        margin-top: 0.8rem;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .btnTrailer{
+        margin-top: 0.8rem;
+    }
+    .btnTrailer button{
+        padding: 5px;
+        margin-right: 0.8rem;
+        border-radius: 5px;
+        font-size: 0.75rem;
+    }
+}
+@media (max-width: 403px){
+    .ibtn{
+        display: none;
+    }
+
+}
+@media (max-width: 363px){
+    .title2{
+        display: none;
+    }
+}
+@media (max-width: 340px){
+    .genreType{
+        font-size: 0.8rem;
+    }
+    .movieName{
+        font-size: 1rem;
+        /* font-weight: 700; */
+        margin-top: 0.5rem;
+    }
+    .movieInfo{
+        margin-top: 0.6rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .btnTrailer{
+        margin-top: 0.7rem;
+    }
+    .btnTrailer button{
+        padding: 4.4px;
+        margin-right: 0.65rem;
+        border-radius: 4.4px;
+        font-size: 0.65rem;
+    }
+}
