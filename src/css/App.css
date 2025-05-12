@@ -11,11 +11,11 @@
     scroll-padding-top:2rem ;
     scroll-behavior: smooth;
 }
-body{
+/* body{
     background-color: black;
     color: #FFFFFF;
 
-}
+} */
 .loading{
     margin-top: 20vh;
 }
