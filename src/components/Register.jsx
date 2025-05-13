@@ -67,8 +67,10 @@ const Register = () => {
             <label htmlFor="password">Enter Password</label>
           </div>
 
-          <button type="submit">Continue</button>
-
+          {/* <button type="submit">Continue</button> */}
+          <button type="submit" disabled={loading}>
+            {loading ? 'Signing...' : 'Sign Up'}
+          </button>
           <div className="register">
             <p>Already registered? <Link to="/login">Login</Link></p>
           </div>
