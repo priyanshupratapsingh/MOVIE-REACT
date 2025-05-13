@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../AuthContext';
+import { Link } from 'react-router-dom';
 import MovieCard from './MovieCard';
 import Navbar from './Navbar';
 import '../css/MyList.css';
@@ -97,10 +98,10 @@ const MyList = () => {
           <p>You haven't added anything to My List.</p>
         </div>
       ) : (
-        <>
-          <div className="my-list-movies">
+        <>          <div className="my-list-movies">
             {myList.map((movie) => (
-              <div key={movie.movieId} className="movie-item">
+              <Link to={`/movies/${movie.movieId}`} key={movie.movieId}>
+              <div className="movie-item">
                 <img
                   src={movie.posterPath 
                     ? `https://image.tmdb.org/t/p/w500${movie.posterPath}`
@@ -110,6 +111,7 @@ const MyList = () => {
                 />
                 <h3 className="movie-title">{movie.title}</h3>
               </div>
+              </Link>
             ))}
           </div>
 

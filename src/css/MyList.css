@@ -25,9 +25,17 @@
 
 .my-list-movies {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
   gap: 20px;
+  margin: 0 auto;
   margin-bottom: 40px;
+  /* padding: 0 20px; */
+  width: 90vw;
+  /* color: white; */
+}
+
+.my-list-movies a {
+  text-decoration: none;
 }
 
 .movie-item {
@@ -37,6 +45,12 @@
 
 .movie-item:hover {
   transform: scale(1.05);
+}
+
+.movie-title {
+  color: white;
+  margin-top: 8px;
+  text-align: center;
 }
 
 .recommendations {
