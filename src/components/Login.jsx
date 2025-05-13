@@ -76,8 +76,7 @@ const Login = () => {
             {loading ? 'Logging in...' : 'Log in'}
           </button>
 
-          {loading && <div className="loader">Loading...</div>} {/* Loader icon */}
-
+          
           <div className="register">
             <p>Don't have an account? <Link to="/register">Register</Link></p>
           </div>
