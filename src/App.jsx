@@ -19,6 +19,8 @@ import Footer from './components/Footer';
 
 function App() {
   const [trendWeek, settrendWeek] = useState([])
+  const [trailerUrl, setTrailerUrl] = useState("");
+  const [showTrailer, setShowTrailer] = useState(false);
   const { isAuthenticated } = useAuth()
   const imgURL = 'https://image.tmdb.org/t/p/original/'
 
@@ -26,6 +28,25 @@ function App() {
     const url = '/trending/movie/week?language=en-US'
     getData(url).then((data) => { settrendWeek(data.results) })
   }, [])
+
+  const handleTrailerClick = async (movieId) => {
+    try {
+      const trailerData = await getData(`/movie/${movieId}/videos?language=en-US`);
+      const trailer = trailerData.results?.find(
+        (vid) => vid.type === "Trailer" && vid.site === "YouTube"
+      );
+      
+      if (trailer) {
+        setTrailerUrl(`https://www.youtube.com/embed/${trailer.key}`);
+        setShowTrailer(true);
+      } else {
+        alert("No trailer available for this movie");
+      }
+    } catch (error) {
+      console.error("Error fetching trailer:", error);
+      alert("Error loading trailer");
+    }
+  };
 
   // Check both isAuthenticated and token
   const hasToken = localStorage.getItem('token') !== null;
@@ -81,7 +102,9 @@ function App() {
                     <Link to={`/movies/${item.id}`}>
                       <button>View Description</button>
                     </Link>
-                    <button><i className="fa-solid fa-play"></i> Watch Trailer</button>
+                    <button onClick={() => handleTrailerClick(item.id)}>
+                      <i className="fa-solid fa-play"></i> Watch Trailer
+                    </button>
                   </div>
                 </div>
               </div>
@@ -91,6 +114,21 @@ function App() {
           <div className='loading'>Loading data...</div>
         )}
       </Swiper>
+
+      {showTrailer && (
+        <div className="trailer-modal">
+          <iframe
+            width="560"
+            height="315"
+            src={trailerUrl}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+          <button onClick={() => setShowTrailer(false)}>Close Trailer</button>
+        </div>
+      )}
 
       <Suspense fallback={<div>Loading...</div>}>
         <MovieCard title="trending now" type="movie" url='/trending/movie/day?language=en-US' />

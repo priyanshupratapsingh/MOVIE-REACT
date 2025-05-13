@@ -64,20 +64,20 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="heading2">
-              <div className="search-container">
-                <form onSubmit={handleSearch} className="search-container">
-
-                  <input
-                    className="ip"
-                    type="text"
-                    placeholder="Search movie"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+          <div className="heading2">              <div className="search-container">
+                <form onSubmit={handleSearch}>
+                  <div className="search-input-container">
+                    <input
+                      className="ip"
+                      type="text"
+                      placeholder="Search movie"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
                     />
-                  <button type="submit" className='search-icon sub-btn'>
-                    <i className="fa-solid fa-magnifying-glass "></i>
-                  </button>
+                    <button type="submit" className="search-icon">
+                      <i className="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  </div>
                 </form>
               </div>
 
