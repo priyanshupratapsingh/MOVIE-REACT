@@ -18,7 +18,7 @@ const MovieCard = (props) => {
     getData(url).then((data) => { settrendDay(data.results) })
   }, [])
   return (
-    <div className='card swiper celebrity-swiper'>
+    <div className='celebrity-swiper'>
       <h2 className='movie-heading'>{props.title}</h2>
       <Swiper
         slidesPerView={5}
@@ -29,23 +29,23 @@ const MovieCard = (props) => {
             spaceBetween: 0,
           },
           362: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 0,
           },
           500: {
-            slidesPerView: 3,
-            spaceBetween: 0,
-          },
-          688: {
-            slidesPerView: 3,
-            spaceBetween: 0,
-          },
-          860: {
             slidesPerView: 4,
             spaceBetween: 0,
           },
-          1100: {
+          688: {
             slidesPerView: 5,
+            spaceBetween: 0,
+          },
+          860: {
+            slidesPerView: 6,
+            spaceBetween: 0,
+          },
+          1100: {
+            slidesPerView: 7,
             spaceBetween: 0,
           }
         }}

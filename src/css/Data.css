@@ -170,7 +170,9 @@ body {
 
   /* Celebrity Swiper Styles */
 .celebrity-swiper {
-  padding: 10px 0;
+  width: 90vw;
+  margin: auto;
+  padding: 20px 0;
 }
 
 .celebrity-card {
@@ -187,7 +189,7 @@ body {
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid #ffffff30;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   transition: transform 0.3s ease;
 }
 
