@@ -20,7 +20,7 @@ import MovieCard from './MovieCard';
 import { useAuth } from '../AuthContext';
 const Data = () => {
   const {movieid} = useParams();
-   const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const [apiData, setapiData] = useState({})
   const [peopleData, setpeopleData] = useState({})
   const [isBookmarked, setIsBookmarked] = useState(false);
@@ -130,9 +130,13 @@ const Data = () => {
   // console.dir(;
   console.dir(peopleData)
   console.dir(apiData);
-  if (!isAuthenticated) {
+
+  // Check both isAuthenticated and token
+  const hasToken = localStorage.getItem('token') !== null;
+  if (!isAuthenticated && !hasToken) {
     return <Navigate to="/login" replace />;
   }
+
   return (
     <div>
       <Navbar />

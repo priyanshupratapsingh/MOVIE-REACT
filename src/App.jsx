@@ -25,7 +25,9 @@ function App() {
     getData(url).then((data) => { settrendWeek(data.results) })
   }, [])
 
-  if (!isAuthenticated) {
+  // Check both isAuthenticated and token
+  const hasToken = localStorage.getItem('token') !== null;
+  if (!isAuthenticated && !hasToken) {
     return <Navigate to="/login" replace />;
   }
 
