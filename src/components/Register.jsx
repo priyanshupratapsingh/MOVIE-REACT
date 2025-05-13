@@ -16,7 +16,7 @@ const Register = () => {
     setLoading(true); // Start loading
 
     try {
-      const response = await fetch('http://localhost:5000/api/register', {
+      const response = await fetch('https://mv-backend-k53w.onrender.com/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -25,14 +25,15 @@ const Register = () => {
       const result = await response.json();
 
       if (response.ok) {
-        alert("Registration successful!");
+        alert("Registration successful! Please login.");
         navigate('/login');
       } else {
-        alert(result.message || 'Registration failed.');
+        // Show the specific error message from the server
+        alert(result.message || 'Unable to register. Please try a different username.');
       }
     } catch (error) {
       console.error('Registration error:', error);
-      alert('Registration failed. Please try again.');
+      alert('Network error. Please check your connection and try again.');
     } finally {
       setLoading(false); // Stop loading regardless of outcome
     }
