@@ -131,18 +131,30 @@ function App() {
       )}
 
       <Suspense fallback={<div>Loading...</div>}>
-        <MovieCard title="trending now" type="movie" url='/trending/movie/day?language=en-US' />
-        <MovieCard title="popular movies" type="movie" url='/discover/movie?language=en-US&page=1&sort_by=popularity.desc' />
+        <MovieCard title="Now Playing in Theaters" type="movie" url='/movie/now_playing?language=en-US&page=1' />
+        <MovieCard title="Upcoming Movies" type="movie" url='/movie/upcoming?language=en-US&page=1' />
+        <MovieCard title="Trending Now" type="movie" url='/trending/movie/day?language=en-US' />
+        <MovieCard title="Top Box Office" type="movie" url='/discover/movie?language=en-US&page=1&sort_by=revenue.desc&year=2024' />
+        <Celebrity title="Popular Celebrities" url='/person/popular?language=en-US&page=1' />
+        
+        <MovieCard title="Action & Adventure" type="movie" url='/discover/movie?with_genres=28,12&language=en-US&page=1&sort_by=popularity.desc' />
+        <MovieCard title="Comedy Hits" type="movie" url='/discover/movie?with_genres=35&language=en-US&page=1&sort_by=popularity.desc' />
+        <MovieCard title="Science Fiction" type="movie" url='/discover/movie?with_genres=878&language=en-US&page=1&sort_by=popularity.desc' />
+        <MovieCard title="Horror Movies" type="movie" url='/discover/movie?with_genres=27&language=en-US&page=1&sort_by=popularity.desc' />
+        <MovieCard title="Romance" type="movie" url='/discover/movie?with_genres=10749&language=en-US&page=1&sort_by=popularity.desc' />
+        <MovieCard title="Family Movies" type="movie" url='/discover/movie?with_genres=10751&language=en-US&page=1&sort_by=popularity.desc' />
+        <MovieCard title="Animated Features" type="movie" url='/discover/movie?with_genres=16&language=en-US&page=1&sort_by=popularity.desc' />
+        <MovieCard title="Mystery & Thriller" type="movie" url='/discover/movie?with_genres=9648,53&language=en-US&page=1&sort_by=popularity.desc' />
+        <MovieCard title="Award Winning Films" type="movie" url='/discover/movie?language=en-US&page=1&sort_by=vote_average.desc&vote_count.gte=1000' />
+        
+        <MovieCard title="Popular TV Shows" type="tv" url='/tv/popular?language=en-US&page=1' />
+        <MovieCard title="Top Rated Series" type="tv" url='/tv/top_rated?language=en-US&page=1' />
+        <MovieCard title="Currently Airing TV Shows" type="tv" url='/tv/on_the_air?language=en-US&page=1' />
+        <MovieCard title="TV Shows Airing Today" type="tv" url='/tv/airing_today?language=en-US&page=1' />
+        
       </Suspense>
-      
-      <MovieCard title="popular tv-shows" type="tv" url='/discover/tv?language=en-US&page=1&sort_by=popularity.desc' />
-      
-      <Suspense fallback={<div>Loading...</div>}>
-        <Celebrity title="popular celebrities" url='/person/popular?language=en-US&page=1' />
-        <MovieCard title="Highest grossing movies" type="movie" url='/discover/movie?language=en-US&page=1&sort_by=revenue.desc&year=2024' />
-        <MovieCard title="top rated movies" type="movie" url='/discover/movie?language=en-US&page=1&sort_by=vote_average.desc' />
-        <MovieCard title="top rated tv-shows" type="tv" url='/discover/tv?language=en-US&page=1&sort_by=vote_average.desc' />
-      </Suspense>
+   
+
 
       <Footer />
     </div>

@@ -12,54 +12,41 @@ import { Pagination } from 'swiper/modules';
 const MovieCard = (props) => {
   const [trendDay, settrendDay] = useState([])
 
-  const imgURL = 'https://image.tmdb.org/t/p/w200/'
+  const imgURL = 'https://image.tmdb.org/t/p/w500/'  // Changed to w500 for better quality
   useEffect(() => {
     const url = props.url
-
     getData(url).then((data) => { settrendDay(data.results) })
   }, [])
   return (
-    <div className='card swiper'>
+    <div className='card swiper celebrity-swiper'>
       <h2 className='movie-heading'>{props.title}</h2>
       <Swiper
-        slidesPerView={6}
-        spaceBetween={50}
+        slidesPerView={5}
+        spaceBetween={0}
         breakpoints={{
           150: {
-            slidesPerView: 1,
-            spaceBetween: 0,
-          },
-          255: {
-            slidesPerView: 1.3,
+            slidesPerView: 2,
             spaceBetween: 0,
           },
           362: {
-            slidesPerView: 1.8,
-            spaceBetween: 0,
-          },
-          455: {
-            slidesPerView: 2.2,
+            slidesPerView: 2,
             spaceBetween: 0,
           },
           500: {
-            slidesPerView: 2.45,
+            slidesPerView: 3,
             spaceBetween: 0,
           },
           688: {
-            slidesPerView: 3.2,
-            spaceBetween: 2,
+            slidesPerView: 3,
+            spaceBetween: 0,
           },
           860: {
             slidesPerView: 4,
-            spaceBetween: 5,
+            spaceBetween: 0,
           },
           1100: {
             slidesPerView: 5,
-            spaceBetween: 30,
-          },
-          1300: {
-            slidesPerView: 6,
-            spaceBetween: 40,
+            spaceBetween: 0,
           }
         }}
         modules={[Pagination]}
@@ -71,28 +58,27 @@ const MovieCard = (props) => {
               return <>
                 {item.profile_path ?
                   <SwiperSlide key={item.id}>
-                    {/* <Link to={`/movies/${item.id}`}  > */}
-                      <div className="swipe-head1 swiper-slider">
-
-                        <img src={imgURL + item.profile_path} alt="img.jpg" />
-                        <div className="head-data1">
-                          <p>{item.title ? item.title : item.name}</p>
-
-                        </div>
+                    <div className="celebrity-card">
+                      <div className="celebrity-image-container">
+                        <img 
+                          src={imgURL + item.profile_path} 
+                          alt={item.name} 
+                          className="celebrity-image"
+                        />
                       </div>
-
-                    {/* </Link> */}
-                    </SwiperSlide> : ""
+                      <div className="head-data1">
+                        <p className="celebrity-name">{item.name}</p>
+                      </div>
+                    </div>
+                  </SwiperSlide> : ""
                 }
               </>
-            }
-            )}
-          </div >
+            })}
+          </div>
         ) : (
           <p>Loading data...</p>
         )}
       </Swiper>
-
     </div>
   )
 }
