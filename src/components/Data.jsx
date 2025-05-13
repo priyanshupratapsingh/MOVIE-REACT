@@ -87,37 +87,52 @@ const Data = () => {
       return;
     }
 
-    const userConfirmed = window.confirm('Are you sure you want to add this movie to your list?');
-    if (!userConfirmed) {
-      return; // Exit if the user cancels the action
-    }
-
     setLoadingBookmark(true);
     try {
-      const response = await fetch('https://mv-backend-k53w.onrender.com/api/bookmark', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify({
-          movieId: movieid.toString(),
-          title: apiData.title,
-          posterPath: apiData.poster_path
-        })
-      });
+      if (isBookmarked) {
+        // Remove from list
+        const response = await fetch(`https://mv-backend-k53w.onrender.com/api/bookmark/${movieid}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
 
-      const result = await response.json();
-      
-      if (response.ok) {
-        setIsBookmarked(true);
-        alert('Added to your list!');
+        const result = await response.json();
+        
+        if (response.ok) {
+          setIsBookmarked(false);
+          alert('Removed from your list!');
+        } else {
+          alert(result.message || 'Failed to remove from list');
+        }
       } else {
-        alert(result.message || 'Failed to add to list');
+        // Add to list
+        const response = await fetch('https://mv-backend-k53w.onrender.com/api/bookmark', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          },
+          body: JSON.stringify({
+            movieId: movieid.toString(),
+            title: apiData.title,
+            posterPath: apiData.poster_path
+          })
+        });
+
+        const result = await response.json();
+        
+        if (response.ok) {
+          setIsBookmarked(true);
+          alert('Added to your list!');
+        } else {
+          alert(result.message || 'Failed to add to list');
+        }
       }
     } catch (error) {
-      console.error('Error adding to list:', error);
-      alert('Error adding to list');
+      console.error('Error updating list:', error);
+      alert('Error updating list');
     } finally {
       setLoadingBookmark(false);
     }
