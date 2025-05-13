@@ -5,6 +5,7 @@ import '../css/login.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
+  const [loading, setLoading] = useState(false); // New loading state
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -14,7 +15,8 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
+    setLoading(true); // Set loading to true when request starts
+
     try {
       const response = await fetch('https://mv-backend-k53w.onrender.com/api/login', {
         method: 'POST',
@@ -32,6 +34,8 @@ const Login = () => {
       }
     } catch (error) {
       console.error('Login error:', error);
+    } finally {
+      setLoading(false); // Set loading to false when request ends
     }
   };
 
@@ -68,7 +72,11 @@ const Login = () => {
             <label htmlFor="password">Password</label>
           </div>
 
-          <button type="submit">Log in</button>
+          <button type="submit" disabled={loading}>
+            {loading ? 'Logging in...' : 'Log in'}
+          </button>
+
+          {loading && <div className="loader">Loading...</div>} {/* Loader icon */}
 
           <div className="register">
             <p>Don't have an account? <Link to="/register">Register</Link></p>
