@@ -4,6 +4,7 @@ import MovieCard from './MovieCard';
 import Navbar from './Navbar';
 import '../css/MyList.css';
 import '../css/App.css';
+import Footer from './Footer';
 
 const MyList = () => {
   const { user, isAuthenticated } = useAuth();
@@ -126,6 +127,7 @@ const MyList = () => {
           )}
         </>
       )}
+      <Footer />
     </div>
   );
 };

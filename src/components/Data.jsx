@@ -18,6 +18,7 @@ import Navbar from './Navbar';
 import MovieCard from './MovieCard';
 
 import { useAuth } from '../AuthContext';
+import Footer from './Footer';
 const Data = () => {
   const {movieid} = useParams();
   const { isAuthenticated, user } = useAuth();
@@ -295,6 +296,7 @@ const Data = () => {
           <MovieCard title="Recommended Movies" type="movie" url={recommend} />
         </div>
       )}
+      <Footer />
     </div>
   )
 }
