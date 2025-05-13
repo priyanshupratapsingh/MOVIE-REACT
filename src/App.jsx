@@ -3,6 +3,7 @@ import { Link, Navigate } from 'react-router-dom'
 import { useAuth } from './AuthContext' // Import the auth context
 import './css/App.css'
 import './css/mediaq.css'
+import './css/footer.css'
 // Swiper imports
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -14,6 +15,7 @@ import { getGenreName } from './components/GenreData'
 const MovieCard = lazy(() => import('./components/MovieCard'));
 const Celebrity = lazy(() => import('./components/Celebrity'));
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   const [trendWeek, settrendWeek] = useState([])
@@ -103,6 +105,8 @@ function App() {
         <MovieCard title="top rated movies" type="movie" url='/discover/movie?language=en-US&page=1&sort_by=vote_average.desc' />
         <MovieCard title="top rated tv-shows" type="tv" url='/discover/tv?language=en-US&page=1&sort_by=vote_average.desc' />
       </Suspense>
+
+      <Footer />
     </div>
   )
 }
