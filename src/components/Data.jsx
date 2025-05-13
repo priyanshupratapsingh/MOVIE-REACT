@@ -87,6 +87,11 @@ const Data = () => {
       return;
     }
 
+    const userConfirmed = window.confirm('Are you sure you want to add this movie to your list?');
+    if (!userConfirmed) {
+      return; // Exit if the user cancels the action
+    }
+
     setLoadingBookmark(true);
     try {
       const response = await fetch('https://mv-backend-k53w.onrender.com/api/bookmark', {
