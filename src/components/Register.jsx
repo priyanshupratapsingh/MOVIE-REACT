@@ -4,6 +4,7 @@ import '../css/login.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -12,10 +13,10 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("Sending data:", formData); // For debugging
+    setLoading(true); // Start loading
 
     try {
-      const response = await fetch('https://mv-backend-k53w.onrender.com/api/register', {
+      const response = await fetch('http://localhost:5000/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -31,6 +32,9 @@ const Register = () => {
       }
     } catch (error) {
       console.error('Registration error:', error);
+      alert('Registration failed. Please try again.');
+    } finally {
+      setLoading(false); // Stop loading regardless of outcome
     }
   };
 
@@ -67,10 +71,17 @@ const Register = () => {
             <label htmlFor="password">Enter Password</label>
           </div>
 
-          {/* <button type="submit">Continue</button> */}
           <button type="submit" disabled={loading}>
-            {loading ? 'Signing...' : 'Sign Up'}
+            {loading ? (
+              <div className="loader">
+                <i className="fa-solid fa-spinner fa-spin"></i>
+                <span>Processing...</span>
+              </div>
+            ) : (
+              'Sign Up'
+            )}
           </button>
+
           <div className="register">
             <p>Already registered? <Link to="/login">Login</Link></p>
           </div>
