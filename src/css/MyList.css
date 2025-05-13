@@ -1,0 +1,50 @@
+.my-list-container {
+  /* padding: 20px; */
+  /* max-width: 1200px; */
+  margin: 105px auto 0 auto;
+}
+
+.my-list-container h2 {
+  font-size: 24px;
+
+  /* margin-bottom: 20px; */
+}
+.head{
+      background-color: #303030;
+      /* height: 80px; */
+      padding: 15px 0 15px 60px;
+      margin-bottom: 35px;
+}
+.empty-list {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 21px;
+  background-color: #303030;
+  color: #777;
+}
+
+.my-list-movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.movie-item {
+  transition: transform 0.2s;
+  /* border: 2px solid white; */
+}
+
+.movie-item:hover {
+  transform: scale(1.05);
+}
+
+.recommendations {
+  margin-top: 40px;
+}
+
+.movie-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}

@@ -61,7 +61,7 @@ body {
     padding-left: 50px;
     /* width: 75vw; */
 }
-.c, .d, .e, .f, .g{
+.c, .d, .e, .f, .g, .b1{
     font-size: 1.11rem;
 }
 .infoData h1{
@@ -94,6 +94,23 @@ body {
     display: flex; /* Enable flexbox */
     flex-wrap: wrap; /* Allow items to wrap */
     gap: 10px; /* Add consistent spacing between items */
+}
+.bb1{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 30px;
+}
+.b1{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 6px;
+
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+.b1:hover {
+  transform: scale(1.06);
 }
 .c{
     display: flex;

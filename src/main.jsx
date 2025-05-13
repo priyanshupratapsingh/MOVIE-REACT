@@ -7,32 +7,40 @@ import Data from './components/Data.jsx'
 import TVdata from './components/TVdata.jsx'
 import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
+import MyList from './components/MyList.jsx'
+import { AuthProvider } from './AuthContext'
 
-const routerr = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>
+    element: <App />
   },
   {
     path: "/login",
-    element: <Login/>
+    element: <Login />
   },
   {
     path: "/register",
-    element: <Register/>
+    element: <Register />
+  },
+  {
+    path: "/mylist",
+    element: <MyList />
   },
   {
     path: "/movies/:movieid",
-    element: <Data/>
+    element: <Data />
   },
   {
     path: "/tv/:tvid",
-    element: <TVdata/>
+    element: <TVdata />
   }
 ])
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={routerr}/>
-    {/* <App /> */}
-  </StrictMode>,
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  </StrictMode>
 )

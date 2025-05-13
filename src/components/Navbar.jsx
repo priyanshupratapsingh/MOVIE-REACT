@@ -53,6 +53,8 @@ const Navbar = () => {
               <ul className="menu">
                 <li><Link to="/">Movies</Link></li>
                 <li><Link to="/">TV Shows</Link></li>
+                <li><Link to="/mylist">My List</Link></li>
+                <li><Link to="/login">Log Out</Link></li>
               </ul>
             </div>
           </div>
