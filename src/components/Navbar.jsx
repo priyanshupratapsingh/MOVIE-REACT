@@ -35,6 +35,11 @@ const Navbar = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove the token from localStorage
+    navigate('/login');
+  };
+
   return (
     <div>
       <header>
@@ -54,7 +59,7 @@ const Navbar = () => {
                 <li><Link to="/">Movies</Link></li>
                 <li><Link to="/">TV Shows</Link></li>
                 <li><Link to="/mylist">My List</Link></li>
-                <li><Link to="/login">Log Out</Link></li>
+                <li><Link href="#" onClick={handleLogout}>Log Out</Link></li>
               </ul>
             </div>
           </div>
